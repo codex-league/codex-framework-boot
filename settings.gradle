@@ -1,0 +1,9 @@
+rootProject.name = 'codex-user-center'
+include 'codex-common-core'
+include 'codex-server-user-center'
+include 'codex-server-oauth-center'
+include 'codex-db-oauth-center'
+include 'codex-db-user-center'
+include 'codex-entity-oauth-center'
+include 'codex-entity-user-center'
+
