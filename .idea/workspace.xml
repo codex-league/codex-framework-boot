@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd405e29-7aa0-429e-8794-2a885d8d55c5" name="Changes" comment="" />
+    <list default="true" id="cd405e29-7aa0-429e-8794-2a885d8d55c5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/constant/CommonConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/constant/IEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/exceptions/CodeDefined.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/exceptions/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/exceptions/IMessageEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/exceptions/RException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/utils/ArrayUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/utils/CaptchaUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/utils/DateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/utils/MD5Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/utils/ObjectToStringSerializerUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/utils/SnowflakeIdWorker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/utils/SpringContextUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/utils/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codex-common-core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/codex-common-core/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codex-server-user-center/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/codex-server-user-center/src/main/resources/application-local.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,50 +54,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="codex-user-center" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="codex-user-center" type="f1a62948:ProjectNode" />
-                <item name="codex-db-user-center" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="codex-user-center" type="f1a62948:ProjectNode" />
-                <item name="codex-db-user-center" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="codex-user-center" type="f1a62948:ProjectNode" />
-                <item name="codex-db-user-center" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="codex-user-center" type="f1a62948:ProjectNode" />
-                <item name="codex-db-user-center" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="com.baomidou:mybatis-plus-boot-starter:3.5.3.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="codex-user-center" type="f1a62948:ProjectNode" />
-                <item name="codex-server-user-center" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="codex-user-center" type="f1a62948:ProjectNode" />
-                <item name="codex-server-user-center" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="codex-user-center" type="f1a62948:ProjectNode" />
-                <item name="codex-server-user-center" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -117,10 +91,11 @@
     "RequestMappingsPanelWidth2": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
     "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "/Users/xuxi/CodeHub/workspace-main/codex-user-center/codex-server-user-center/src/main/java/pub/codex/usercenter/controller",
+    "last_opened_file_path": "/Users/xuxi/CodeHub/workspace-codex/codex-user-center/codex-common-core/src/main/java/pub/codex/common/core/utils",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -130,16 +105,16 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.28653628",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "spring.configuration.checksum": "383095fe98f0ad71e68f36e00c49e56d"
+    "spring.configuration.checksum": "c7be106f53c8b197895b95cc40aaa93d"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/utils" />
+      <recent name="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/exceptions" />
+      <recent name="$PROJECT_DIR$/codex-common-core/src/main/java/pub/codex/common/core/ex" />
       <recent name="$PROJECT_DIR$/codex-server-user-center/src/main/java/pub/codex/usercenter/controller" />
       <recent name="$PROJECT_DIR$/codex-db-user-center/src/main/resources" />
-      <recent name="$PROJECT_DIR$/codex-entity-user-center/src/main/java" />
-      <recent name="$PROJECT_DIR$/codex-db-user-center/src/main/java" />
-      <recent name="$PROJECT_DIR$/codex-server-user-center/src/main/java" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -215,7 +190,8 @@
       <updated>1680153739333</updated>
       <workItem from="1680153741117" duration="8279000" />
       <workItem from="1680162981241" duration="10765000" />
-      <workItem from="1680251624072" duration="5374000" />
+      <workItem from="1680251624072" duration="5541000" />
+      <workItem from="1680574407139" duration="1827000" />
     </task>
     <servers />
   </component>

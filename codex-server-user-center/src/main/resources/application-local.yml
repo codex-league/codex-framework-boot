@@ -5,12 +5,12 @@ codex:
     password: 123456
     driverClassName: com.mysql.cj.jdbc.Driver
   package:
-    entity-path: pub.codex.entity.usercenter.entity
-    mapper-path: pub.codex.db.usercenter.mapper
+    entity-path: pub.codex.user.entity
+    mapper-path: pub.codex.user.db.mapper
     mapperXML-path: mapper
-    service-path: pub.codex.db.usercenter.service
-    serviceImpl-path: pub.codex.db.usercenter.service.impl
-    controller-path: pub.codex.usercenter.controller
+    service-path: pub.codex.user.db.service
+    serviceImpl-path: pub.codex.user.db.service.impl
+    controller-path: pub.codex.user.controller
   prefix: t_,tb_,test_
 apix:
-  controllerPackage: pub.codex.usercenter.controller
+  controllerPackage: pub.codex.user.controller
