@@ -4,9 +4,9 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import jakarta.validation.constraints.NotBlank;
 import pub.codex.apix.annotations.*;
 import pub.codex.apix.annotations.group.VG;
-import javax.validation.constraints.*;
 import java.io.Serializable;
 
 

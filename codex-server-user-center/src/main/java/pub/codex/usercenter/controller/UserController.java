@@ -11,11 +11,12 @@ import pub.codex.apix.annotations.ApiOperation;
 import pub.codex.apix.annotations.ApiParam;
 import pub.codex.apix.annotations.constant.Describe;
 import pub.codex.apix.annotations.group.VG;
-import pub.codex.common.factory.RFactory;
-import pub.codex.common.models.R;
+import pub.codex.common.result.R;
+import pub.codex.common.result.RBuilder;
+import pub.codex.common.result.RData;
 import pub.codex.core.template.utils.WhereUtils;
-import pub.codex.entity.usercenter.entity.UserEntity;
 import pub.codex.db.usercenter.service.UserService;
+import pub.codex.entity.usercenter.entity.UserEntity;
 
 /**
  * 用户示例表
@@ -38,7 +39,7 @@ public class UserController {
     @PostMapping("/user")
     public R add(@RequestBody @Validated(VG.Add.class)UserEntity userEntity) {
         userService.save(userEntity);
-        return RFactory.build();
+        return RBuilder.ok();
     }
 
 
@@ -51,7 +52,7 @@ public class UserController {
     @PutMapping("/user")
     public R update(@RequestBody @Validated(VG.Update.class)UserEntity userEntity) {
         userService.updateById(userEntity);
-        return RFactory.build();
+        return RBuilder.ok();
     }
 
 
@@ -64,7 +65,7 @@ public class UserController {
     @DeleteMapping("/user/{id}")
     public R delete(@ApiParam(Describe.ID) @PathVariable("id") String id) {
         userService.removeById(id);
-        return RFactory.build();
+        return RBuilder.ok();
     }
 
 
@@ -75,8 +76,8 @@ public class UserController {
      */
     @ApiOperation("详情接口")
     @GetMapping("/user/{id}")
-    public R<UserEntity> detail(@ApiParam(Describe.ID) @PathVariable("id") String id) {
-        return RFactory.build(UserEntity.class, userService.getById(id));
+    public RData<UserEntity> detail(@ApiParam(Describe.ID) @PathVariable("id") String id) {
+        return RBuilder.build(userService.getById(id));
     }
 
 
@@ -89,17 +90,16 @@ public class UserController {
      */
     @ApiOperation("列表接口")
     @GetMapping("/user")
-    public R<Page<UserEntity>> list(@ApiParam(Describe.WHERE) @RequestParam(required = false) String where,
-                  @ApiParam(Describe.KEYWORD) @RequestParam(required = false) String keyword,
-                  @ApiParam(Describe.PAGE_INDEX) @RequestParam(defaultValue = "0") Long pageIndex,
-                  @ApiParam(Describe.PAGE_SIZE) @RequestParam(defaultValue = "10") Long pageSize) {
+    public RData<Page<UserEntity>> list(@ApiParam(Describe.WHERE) @RequestParam(required = false) String where,
+                                        @ApiParam(Describe.KEYWORD) @RequestParam(required = false) String keyword,
+                                        @ApiParam(Describe.PAGE_INDEX) @RequestParam(defaultValue = "0") Long pageIndex,
+                                        @ApiParam(Describe.PAGE_SIZE) @RequestParam(defaultValue = "10") Long pageSize) {
 
         QueryWrapper<UserEntity> entity = new QueryWrapper<>();
 
         WhereUtils.setWhereAndKeyword(entity, where, keyword);
 
-        return RFactory.build(new TypeReference<Page<UserEntity>>() {
-        }, userService.page(new Page<>(pageIndex, pageSize), entity));
+        return RBuilder.build(userService.page(new Page<>(pageIndex, pageSize), entity));
     }
 
 }

@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import pub.codex.common.core.utils.ArrayUtil;
 import pub.codex.common.core.utils.StringUtils;
-import pub.codex.common.models.R;
+import pub.codex.common.result.R;
+import pub.codex.common.result.RBuilder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,7 +42,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = RException.class)
     @ResponseBody
     public R baseExceptionHandler(HttpServletRequest req, RException ex) throws Exception {
-        return R.error(ex.getCode(), ex.getMsg());
+        return RBuilder.error(ex.getCode(), ex.getMsg());
     }
 
     /**
@@ -55,7 +56,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = NoHandlerFoundException.class)
     @ResponseBody
     public R noHandlerExceptionHandler(HttpServletRequest req, Exception ex) throws Exception {
-        return R.error(CodeDefined.URL_NOT_FOUND.getValue(), CodeDefined.URL_NOT_FOUND.getDesc());
+        return RBuilder.error(CodeDefined.URL_NOT_FOUND.getValue(), CodeDefined.URL_NOT_FOUND.getDesc());
     }
 
     /**
@@ -71,7 +72,7 @@ public class GlobalExceptionHandler {
     public R exceptionHandler(HttpServletRequest req, Exception ex) throws Exception {
 
         logger.error("未知异常:", ex);
-        return R.error(CodeDefined.ERROR.getValue(), CodeDefined.ERROR.getDesc());
+        return RBuilder.error(CodeDefined.ERROR.getValue(), CodeDefined.ERROR.getDesc());
     }
 
     /**
@@ -116,7 +117,7 @@ public class GlobalExceptionHandler {
         }
 
 
-        return R.error(CodeDefined.ERROR_PARAMETER.getValue(), CodeDefined.ERROR_PARAMETER.getDesc()).put("data", resErrors);
+        return RBuilder.tips(CodeDefined.ERROR_PARAMETER.getValue(), CodeDefined.ERROR_PARAMETER.getDesc(), resErrors);
     }
 
     private String formatValidMessage(String format, FieldError error) {
@@ -136,7 +137,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public R httpMessageNotReadableExceptionHandler(HttpServletRequest req, Exception ex) throws Exception {
         logger.error("json语法错误异常:", ex);
-        return R.error(CodeDefined.ERROR_SYNTAX.getValue(), CodeDefined.ERROR_SYNTAX.getDesc());
+        return RBuilder.error(CodeDefined.ERROR_SYNTAX.getValue(), CodeDefined.ERROR_SYNTAX.getDesc());
     }
 
 
@@ -152,7 +153,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public R HttpRequestMethodNotSupportedException(HttpServletRequest req, HttpRequestMethodNotSupportedException ex) throws Exception {
         logger.error("请求方法类型错误:", ex);
-        return R.error(CodeDefined.METHOD_ERROR.getValue(), String.format(
+        return RBuilder.error(CodeDefined.METHOD_ERROR.getValue(), String.format(
                 CodeDefined.METHOD_ERROR.getDesc(), ArrayUtil.splicing(",", ex.getSupportedMethods())));
     }
 
