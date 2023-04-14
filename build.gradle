@@ -7,7 +7,7 @@ plugins {
 subprojects(){
     apply plugin: 'java-library'
     apply plugin: 'idea'
-    apply plugin: "io.spring.dependency-management"
+    apply plugin: 'io.spring.dependency-management'
 
     group = 'pub.codex'
     version = '1.0.0'
@@ -17,13 +17,14 @@ subprojects(){
     dependencyManagement {
         imports {
             mavenBom SpringBootPlugin.BOM_COORDINATES
-            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.0.4.0"
+            mavenBom 'com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.0.4.0'
+            mavenBom 'org.springframework.security:spring-security-bom:6.0.2'
 
         }
     }
 
     repositories {
-        maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
         mavenCentral()
         mavenLocal()
     }
@@ -31,4 +32,6 @@ subprojects(){
     dependencies {
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
+
+
 }

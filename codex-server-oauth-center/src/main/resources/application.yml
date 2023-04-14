@@ -1,9 +1,11 @@
 server:
-  port: 8100
+  port: 8000
 
 spring:
+  main:
+    allow-bean-definition-overriding: true
   application:
-    name: 'codex-server-user-center'
+    name: 'codex-server-oauth-center'
   profiles:
     active: local
 
@@ -31,3 +33,4 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
     call-setters-on-nulls: true
+

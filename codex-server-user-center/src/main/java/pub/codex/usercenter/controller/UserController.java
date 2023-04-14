@@ -1,5 +1,6 @@
 package pub.codex.usercenter.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,7 +15,7 @@ import pub.codex.apix.annotations.group.VG;
 import pub.codex.common.result.R;
 import pub.codex.common.result.RBuilder;
 import pub.codex.common.result.RData;
-import pub.codex.core.template.utils.WhereUtils;
+import pub.codex.core.template.utils.QueryWrapperUtils;
 import pub.codex.db.usercenter.service.UserService;
 import pub.codex.entity.usercenter.entity.UserEntity;
 
@@ -92,14 +93,13 @@ public class UserController {
     @GetMapping("/user")
     public RData<Page<UserEntity>> list(@ApiParam(Describe.WHERE) @RequestParam(required = false) String where,
                                         @ApiParam(Describe.KEYWORD) @RequestParam(required = false) String keyword,
-                                        @ApiParam(Describe.PAGE_INDEX) @RequestParam(defaultValue = "0") Long pageIndex,
+                                        @ApiParam(Describe.PAGE_NUM) @RequestParam(defaultValue = "0") Long pageNum,
                                         @ApiParam(Describe.PAGE_SIZE) @RequestParam(defaultValue = "10") Long pageSize) {
 
-        QueryWrapper<UserEntity> entity = new QueryWrapper<>();
 
-        WhereUtils.setWhereAndKeyword(entity, where, keyword);
+        LambdaQueryWrapper query = QueryWrapperUtils.setWhereAndKeyword( where, keyword);
 
-        return RBuilder.build(userService.page(new Page<>(pageIndex, pageSize), entity));
+        return RBuilder.build(userService.page(new Page<>(pageNum, pageSize), query));
     }
 
 }

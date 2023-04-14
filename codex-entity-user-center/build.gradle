@@ -1,5 +1,5 @@
 dependencies {
-    implementation project(":codex-common-core")
+    implementation project(':codex-common-core')
 
     implementation 'pub.codex:codex-apix-annotations:5.0.0-SNAPSHOT'
     implementation 'com.baomidou:mybatis-plus-annotation:3.5.3.1'

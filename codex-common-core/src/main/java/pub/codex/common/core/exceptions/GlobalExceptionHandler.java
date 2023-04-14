@@ -101,7 +101,8 @@ public class GlobalExceptionHandler {
             if (error instanceof FieldError) {
                 FieldError fieldError = (FieldError) error;
                 String messageFormat = fieldError.getDefaultMessage();
-                String errorMessage = formatValidMessage(messageFormat, fieldError);
+//                String errorMessage = formatValidMessage(messageFormat, fieldError);
+                String errorMessage = messageFormat;
 
                 result.put("field", fieldError.getField());
                 result.put(MESSAGE, errorMessage);
@@ -120,10 +121,6 @@ public class GlobalExceptionHandler {
         return RBuilder.tips(CodeDefined.ERROR_PARAMETER.getValue(), CodeDefined.ERROR_PARAMETER.getDesc(), resErrors);
     }
 
-    private String formatValidMessage(String format, FieldError error) {
-
-        return format;
-    }
 
     /**
      * 请求参数语法错误
@@ -151,11 +148,23 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = HttpRequestMethodNotSupportedException.class)
     @ResponseBody
-    public R HttpRequestMethodNotSupportedException(HttpServletRequest req, HttpRequestMethodNotSupportedException ex) throws Exception {
+    public R httpRequestMethodNotSupportedException(HttpServletRequest req, HttpRequestMethodNotSupportedException ex) throws Exception {
         logger.error("请求方法类型错误:", ex);
         return RBuilder.error(CodeDefined.METHOD_ERROR.getValue(), String.format(
                 CodeDefined.METHOD_ERROR.getDesc(), ArrayUtil.splicing(",", ex.getSupportedMethods())));
     }
 
-
+    /**
+     * 非法数据异常
+     * @param ex
+     * @return
+     * @throws Exception
+     */
+    @ExceptionHandler(value = IllegalArgumentException.class)
+    @ResponseBody
+    public R illegalArgumentException(IllegalArgumentException ex) throws Exception {
+        logger.error("非法数据异常:", ex);
+        return RBuilder.build(CodeDefined.ILLEGAL_ARGUMENT.getValue(),
+                String.format(CodeDefined.ILLEGAL_ARGUMENT.getDesc(),ex.getMessage()));
+    }
 }

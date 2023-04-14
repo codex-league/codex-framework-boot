@@ -6,7 +6,7 @@ package pub.codex.common.core.exceptions;
 public class RException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
-    private String code = CodeDefined.ERROR.getValue();
+    private Integer code = CodeDefined.ERROR.getValue();
     private String msg;
 
     public RException(String msg) {
@@ -19,13 +19,13 @@ public class RException extends RuntimeException {
         this.msg = msg;
     }
 
-    public RException(String msg, String code) {
+    public RException(String msg, Integer code) {
         super(msg);
         this.code = code;
         this.msg = msg;
     }
 
-    public RException(String msg, String code, Throwable e) {
+    public RException(String msg, Integer code, Throwable e) {
         super(msg, e);
         this.code = code;
         this.msg = msg;
@@ -45,11 +45,11 @@ public class RException extends RuntimeException {
         this.msg = msg;
     }
 
-    public String getCode() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 
