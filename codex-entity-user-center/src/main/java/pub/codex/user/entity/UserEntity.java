@@ -1,12 +1,12 @@
-package pub.codex.entity.usercenter.entity;
+package pub.codex.user.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import jakarta.validation.constraints.NotBlank;
 import pub.codex.apix.annotations.*;
 import pub.codex.apix.annotations.group.VG;
+import jakarta.validation.constraints.*;
 import java.io.Serializable;
 
 
@@ -18,36 +18,60 @@ import java.util.Date;
 /**
  * 用户示例表
  * 
- * @date 2023-03-31 17:44:20
+ * @date 2023-04-14 09:59:48
  */
 @TableName("t_user")
 public class UserEntity implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Id
 	 */
 	@TableId
-	@JsonSerialize(using=ToStringSerializer.class)
-	@NotBlank(groups = {VG.Update.class})
+	@JsonSerialize(using = ToStringSerializer.class)
+	@NotBlank(groups = {VG.Update.class })
 	@ApiModelProperty("Id")
 	private String id;
+
+	/**
+	 * 租户ID
+	 */
+	@ApiModelProperty("租户ID")
+	private String tenantId;
+
+	/**
+	 * 用户名
+	 */
+	@NotBlank(groups = {VG.Add.class })
+	@ApiModelProperty("用户名")
+	private String username;
+
+	/**
+	 * 密码
+	 */
+	@ApiModelProperty(describe = "密码", groups = {VG.Add.class })
+	private String password;
+
 	/**
 	 * 姓名
 	 */
-	@NotBlank(groups = {VG.Add.class})
-	@ApiModelProperty(describe = "姓名",groups = {VG.Update.class})
+	@NotBlank(groups = {VG.Add.class, VG.Update.class })
+	@ApiModelProperty("姓名")
 	private String name;
+
 	/**
 	 * 创建时间
 	 */
-	@ApiModelProperty(describe = "创建时间",groups = {VG.Add.class,VG.Update.class})
+	@ApiModelProperty("创建时间")
 	private Date createTime;
+
 	/**
 	 * 更新时间
 	 */
-	@ApiModelProperty(describe = "更新时间",groups = {VG.Add.class,VG.Update.class})
+	@ApiModelProperty("更新时间")
 	private Date updateTime;
+
 
 	public void setId(String id) {
 		this.id = id;
@@ -55,6 +79,30 @@ public class UserEntity implements Serializable {
 
 	public String getId() {
 		return id;
+	}
+
+	public void setTenantId(String tenantId) {
+		this.tenantId = tenantId;
+	}
+
+	public String getTenantId() {
+		return tenantId;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 
 	public void setName(String name) {
