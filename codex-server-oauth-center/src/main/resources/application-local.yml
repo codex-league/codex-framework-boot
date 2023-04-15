@@ -1,4 +1,8 @@
 logging:
   level:
-    root: info
+    root: trace
     pub.codex.oauth: debug
+
+
+
+#    isTraceEnabled

@@ -4,9 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import pub.codex.apix.annotations.*;
-import pub.codex.apix.annotations.group.VG;
-import jakarta.validation.constraints.*;
+
 import java.io.Serializable;
 
 
@@ -20,7 +18,7 @@ import java.util.Date;
  * 
  * @date 2023-04-14 09:49:42
  */
-@TableName("t_user")
+@TableName("user")
 public class UserEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -30,43 +28,36 @@ public class UserEntity implements Serializable {
 	 */
 	@TableId
 	@JsonSerialize(using = ToStringSerializer.class)
-	@ApiModelProperty("Id")
 	private String id;
 
 	/**
 	 * 租户ID
 	 */
-	@ApiModelProperty("租户ID")
 	private String tenantId;
 
 	/**
 	 * 用户名
 	 */
-	@ApiModelProperty("用户名")
 	private String username;
 
 	/**
 	 * 密码
 	 */
-	@ApiModelProperty("密码")
 	private String password;
 
 	/**
 	 * 姓名
 	 */
-	@ApiModelProperty("姓名")
 	private String name;
 
 	/**
 	 * 创建时间
 	 */
-	@ApiModelProperty("创建时间")
 	private Date createTime;
 
 	/**
 	 * 更新时间
 	 */
-	@ApiModelProperty("更新时间")
 	private Date updateTime;
 
 

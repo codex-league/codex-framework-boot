@@ -19,7 +19,7 @@ import java.io.Serializable;
  * 
  * @date 2023-04-14 09:58:39
  */
-@TableName("t_oauth_client")
+@TableName("oauth_client")
 public class OauthClientEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;

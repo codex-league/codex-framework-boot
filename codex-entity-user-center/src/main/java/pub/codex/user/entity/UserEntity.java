@@ -20,7 +20,7 @@ import java.util.Date;
  * 
  * @date 2023-04-14 09:59:48
  */
-@TableName("t_user")
+@TableName("user")
 public class UserEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
