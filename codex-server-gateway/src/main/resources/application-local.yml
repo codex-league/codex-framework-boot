@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: codex-server-oauth-center
+          uri: lb://codex-server-oauth-center
+          predicates:
+            - Path=/oauth/**
+          filters:
+            - StripPrefix=1
+        - id: codex-server-user-center
+          uri: lb://codex-server-user-center
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+
+logging:
+  level:
+    root: info
+    pub.codex.oauth: debug

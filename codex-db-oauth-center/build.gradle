@@ -3,8 +3,6 @@ dependencies {
 
     api 'com.baomidou:mybatis-plus-boot-starter:3.5.3.1'
 
-//    implementation 'org.springframework.boot:spring-boot-starter'
-//    implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation 'mysql:mysql-connector-java:8.0.32'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

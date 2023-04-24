@@ -1,8 +1,12 @@
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: ${DB_USERCENTER_URL:jdbc:mysql://localhost:3306/codex?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USERCENTER_USERNAME:root}
+    password: ${DB_USERCENTER_PWD:123456}
+
 logging:
   level:
-    root: trace
+    root: info
     pub.codex.oauth: debug
-
-
-
-#    isTraceEnabled

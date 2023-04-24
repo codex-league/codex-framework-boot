@@ -38,11 +38,6 @@ classes
 
 **.DS_Store
 
-### gradle ###
-gradle
-gradlew
-gradlew.bat
-
 ### jrebel ###
 rebel-remote.xml
 rebel.xml

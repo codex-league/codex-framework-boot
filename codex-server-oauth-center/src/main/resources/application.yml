@@ -1,25 +1,17 @@
 server:
-  port: 8000
+  port: 8100
 
 spring:
-  main:
-    allow-bean-definition-overriding: true
   application:
     name: 'codex-server-oauth-center'
   profiles:
     active: local
 
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: ${DB_USERCENTER_URL:jdbc:mysql://localhost:3306/codex?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true}
-    username: ${DB_USERCENTER_USERNAME:root}
-    password: ${DB_USERCENTER_PWD:123456}
-
 #mybatis
 mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: pub.codex.oauth.db.entity
+  typeAliasesPackage: pub.codex.oauth.entity
   global-config:
     #逻辑删除配置
     db-config:

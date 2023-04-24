@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: ${CONFIG_NACOS_HOSTS:localhost:8848}
+        file-extension: yaml
+        group: ${CONFIG_NACOS_GROUP:DEFAULT_GROUP}
+      discovery:
+        server-addr: ${DISCOVERY_NACOS_HOSTS:localhost:8848}

@@ -8,6 +8,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+    implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config")
+
     implementation 'pub.codex:codex-index:5.0.0-SNAPSHOT'
     implementation 'pub.codex:codex-core-template-mybatis-plus:5.0.0-SNAPSHOT'
 }
