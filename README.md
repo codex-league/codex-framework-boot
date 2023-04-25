@@ -44,8 +44,25 @@ Codex的基础脚手架
 
 # codex-auth-center
 
-## 模式类型
+## 模式类型（实例）
 
+
+### 客户端注册
+
+```shell
+curl --location 'http://127.0.0.1:8100/connect/register' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJraWQiOiJlMWUzNTY1Ni01YzY4LTQ1N2MtYTY3Zi0xZTA0M2QwN2QwOTgiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjb2RleCIsImF1ZCI6ImNvZGV4IiwibmJmIjoxNjgyNDA0NDczLCJzY29wZSI6WyJjbGllbnQuY3JlYXRlIl0sImlzcyI6Imh0dHA6Ly8xMjcuMC4wLjE6ODEwMCIsImV4cCI6MTY4MjQwNDc3MywiaWF0IjoxNjgyNDA0NDczfQ.CEJpHjsAGGNhF91rk04BsWTVZ0AzV9E5MUUMl1IBXWr1xkwiBcD1eDEw5wu4ce77LStWr6wFNnwv7EC4-BVImaZfig6nN2WZXVlMNxenNMxAiWdQxJhSwRe_HWGwkOTMISDiCOpXWy7yhP0kONld57UgghlhnOg8Pf2VBCYmHXgYVX2GnzvtLlk_Qp45bDPBVGtF4j3G3E5wFVr69aNQYkUX9ltak0box_csh9pdIen6Ko4idA_jERJooQwX71UBXFdyM76HtkHfM2mlPqSWYdgmD6lV-err5O_b1rXVTxZPK406V88eW-r4DZpYEvivnBsJIKFwfCUGxWgkkMpgWA' \
+--header 'Cookie: JSESSIONID=A6C8A99A67D306E19B8A559AABD6FF0D' \
+--data '{
+    "application_type": "refresh_token,client_credentials,authorization_code",
+    "redirect_uris": [
+        "http://127.0.0.1:8000/test"
+    ],
+    "scope":"all"
+}
+'
+```
 
 ### 客户端模式
 
