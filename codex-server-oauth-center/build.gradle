@@ -2,6 +2,8 @@ dependencies {
     implementation project(':codex-db-oauth-center')
 
 
+    implementation 'com.github.binarywang:weixin-java-miniapp:4.5.0'
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 

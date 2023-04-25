@@ -6,6 +6,10 @@ spring:
     username: ${DB_USERCENTER_USERNAME:root}
     password: ${DB_USERCENTER_PWD:123456}
 
+wechat:
+  app-id: wxf092d4adf84ccf02
+  app-secret: 37a7be1b7d8b070944a497b10e3db0a9
+
 logging:
   level:
     root: info

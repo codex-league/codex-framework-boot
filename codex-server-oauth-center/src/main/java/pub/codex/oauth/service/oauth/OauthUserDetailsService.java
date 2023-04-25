@@ -1,4 +1,4 @@
-package pub.codex.oauth.service;
+package pub.codex.oauth.service.oauth;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,16 +6,12 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.core.OAuth2ErrorCodes;
 import org.springframework.security.oauth2.server.authorization.authentication.OAuth2AuthorizationCodeRequestAuthenticationException;
-import org.springframework.stereotype.Component;
 import pub.codex.oauth.db.service.UserService;
 import pub.codex.oauth.entity.UserEntity;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 
 public class OauthUserDetailsService implements UserDetailsService {
