@@ -52,6 +52,11 @@ Codex的基础脚手架
 **注册之前，请确认Authorization的scopes是否拥有`client.create`,`client.read`作用域,且生成Authorization token时，请带上 `client.create`**
 ```shell
 
+curl --location --request POST 'http://127.0.0.1:8100/oauth2/token?grant_type=client_credentials&scope=client.create' \
+--header 'Authorization: Basic Y29kZXg6Y29kZXg=' \
+--header 'Cookie: JSESSIONID=6CD62AFD8914FB82D48D9534E17DA746' \
+--data ''
+
 curl --location 'http://127.0.0.1:8100/connect/register' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer eyJraWQiOiJlMWUzNTY1Ni01YzY4LTQ1N2MtYTY3Zi0xZTA0M2QwN2QwOTgiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjb2RleCIsImF1ZCI6ImNvZGV4IiwibmJmIjoxNjgyNDA0NDczLCJzY29wZSI6WyJjbGllbnQuY3JlYXRlIl0sImlzcyI6Imh0dHA6Ly8xMjcuMC4wLjE6ODEwMCIsImV4cCI6MTY4MjQwNDc3MywiaWF0IjoxNjgyNDA0NDczfQ.CEJpHjsAGGNhF91rk04BsWTVZ0AzV9E5MUUMl1IBXWr1xkwiBcD1eDEw5wu4ce77LStWr6wFNnwv7EC4-BVImaZfig6nN2WZXVlMNxenNMxAiWdQxJhSwRe_HWGwkOTMISDiCOpXWy7yhP0kONld57UgghlhnOg8Pf2VBCYmHXgYVX2GnzvtLlk_Qp45bDPBVGtF4j3G3E5wFVr69aNQYkUX9ltak0box_csh9pdIen6Ko4idA_jERJooQwX71UBXFdyM76HtkHfM2mlPqSWYdgmD6lV-err5O_b1rXVTxZPK406V88eW-r4DZpYEvivnBsJIKFwfCUGxWgkkMpgWA' \
