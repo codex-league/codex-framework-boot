@@ -23,6 +23,7 @@ public class OauthUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         LambdaQueryWrapper<UserEntity> query = new LambdaQueryWrapper<>();
+        query.eq(UserEntity::getUsername, username);
         UserEntity user = userService.getOne(query);
 
         if(user == null){
