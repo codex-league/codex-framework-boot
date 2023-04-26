@@ -19,7 +19,7 @@ subprojects(){
             mavenBom SpringBootPlugin.BOM_COORDINATES
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:2022.0.2"
             mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2022.0.0.0-RC1"
-//            mavenBom 'org.springframework.security:spring-security-bom:6.0.2'
+            mavenBom 'org.springframework.security:spring-security-bom:6.0.2'
 
         }
     }
