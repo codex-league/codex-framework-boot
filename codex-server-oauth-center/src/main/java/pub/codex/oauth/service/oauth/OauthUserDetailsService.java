@@ -2,6 +2,7 @@ package pub.codex.oauth.service.oauth;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,6 +14,8 @@ import pub.codex.oauth.db.service.UserService;
 import pub.codex.oauth.entity.UserEntity;
 
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class OauthUserDetailsService implements UserDetailsService {
 
@@ -32,11 +35,14 @@ public class OauthUserDetailsService implements UserDetailsService {
             throw new OAuth2AuthorizationCodeRequestAuthenticationException(error, null);
         }
 
+        Set<GrantedAuthority> authorities = new HashSet<>();
 
-        return User.withUsername(user.getUsername())
-                .password(user.getPassword())
-                .authorities(Collections.emptyList())
-                .build();
+        OauthUserDetails oauthUserDetails = new OauthUserDetails();
+        oauthUserDetails.setUsername(user.getUsername());
+        oauthUserDetails.setPassword(user.getPassword());
+        oauthUserDetails.setAuthorities(authorities);
+
+        return oauthUserDetails;
 
     }
 }

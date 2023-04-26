@@ -56,9 +56,9 @@ public final class OAuth2PasswordCredentialsAuthenticationProvider implements Au
 	 * @since 0.2.3
 	 */
 	public OAuth2PasswordCredentialsAuthenticationProvider(OAuth2AuthorizationService authorizationService,
-														   OAuth2TokenGenerator<? extends OAuth2Token> tokenGenerator,
-														   UserDetailsService userDetailsService,
-														   PasswordEncoder passwordEncoder) {
+                                                           OAuth2TokenGenerator<? extends OAuth2Token> tokenGenerator,
+                                                           UserDetailsService userDetailsService,
+                                                           PasswordEncoder passwordEncoder) {
 		Assert.notNull(authorizationService, "authorizationService cannot be null");
 		Assert.notNull(tokenGenerator, "tokenGenerator cannot be null");
 		Assert.notNull(userDetailsService, "userDetailsService cannot be null");
@@ -71,11 +71,11 @@ public final class OAuth2PasswordCredentialsAuthenticationProvider implements Au
 
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-		Oauth2PasswordCredentialsAuthenticationToken PasswordCredentialsAuthentication =
+		Oauth2PasswordCredentialsAuthenticationToken passwordCredentialsAuthentication =
 				(Oauth2PasswordCredentialsAuthenticationToken) authentication;
 
 		OAuth2ClientAuthenticationToken clientPrincipal =
-				OAuth2AuthenticationProviderUtils.getAuthenticatedClientElseThrowInvalidClient(PasswordCredentialsAuthentication);
+				OAuth2AuthenticationProviderUtils.getAuthenticatedClientElseThrowInvalidClient(passwordCredentialsAuthentication);
 		RegisteredClient registeredClient = clientPrincipal.getRegisteredClient();
 
 		if (this.logger.isTraceEnabled()) {
@@ -87,18 +87,18 @@ public final class OAuth2PasswordCredentialsAuthenticationProvider implements Au
 		}
 
 		Set<String> authorizedScopes = Collections.emptySet();
-		if (!CollectionUtils.isEmpty(PasswordCredentialsAuthentication.getScopes())) {
-			for (String requestedScope : PasswordCredentialsAuthentication.getScopes()) {
+		if (!CollectionUtils.isEmpty(passwordCredentialsAuthentication.getScopes())) {
+			for (String requestedScope : passwordCredentialsAuthentication.getScopes()) {
 				if (!registeredClient.getScopes().contains(requestedScope)) {
 					throw new OAuth2AuthenticationException(OAuth2ErrorCodes.INVALID_SCOPE);
 				}
 			}
-			authorizedScopes = new LinkedHashSet<>(PasswordCredentialsAuthentication.getScopes());
+			authorizedScopes = new LinkedHashSet<>(passwordCredentialsAuthentication.getScopes());
 		}
 
 		UserDetails userDetails;
 		try {
-			userDetails = this.userDetailsService.loadUserByUsername(PasswordCredentialsAuthentication.getUsername());
+			userDetails = this.userDetailsService.loadUserByUsername(passwordCredentialsAuthentication.getUsername());
 		} catch (UsernameNotFoundException e) {
 			throw new OAuth2AuthenticationException(OAuth2ErrorCodes.INVALID_GRANT);
 		}
@@ -108,7 +108,7 @@ public final class OAuth2PasswordCredentialsAuthenticationProvider implements Au
 			throw new OAuth2AuthorizationCodeRequestAuthenticationException(error, null);
 		}
 
-		if (!this.passwordEncoder.matches(PasswordCredentialsAuthentication.getPassword(), userDetails.getPassword())) {
+		if (!this.passwordEncoder.matches(passwordCredentialsAuthentication.getPassword(), userDetails.getPassword())) {
 			if (this.logger.isDebugEnabled()) {
 				this.logger.debug("Failed to authenticate since password does not match stored value");
 			}
@@ -130,7 +130,7 @@ public final class OAuth2PasswordCredentialsAuthenticationProvider implements Au
 				.authorizationServerContext(AuthorizationServerContextHolder.getContext())
 				.authorizedScopes(authorizedScopes)
 				.authorizationGrantType(AuthorizationGrantType.PASSWORD)
-				.authorizationGrant(PasswordCredentialsAuthentication);
+				.authorizationGrant(passwordCredentialsAuthentication);
 		// @formatter:on
 
 		OAuth2Authorization.Builder authorizationBuilder = OAuth2Authorization.withRegisteredClient(registeredClient)
