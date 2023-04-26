@@ -29,6 +29,7 @@ public class ResourceServerConfig {
                         .requestMatchers("/codex/**").permitAll()
                         .requestMatchers("/error").permitAll()
                         .anyRequest().authenticated()
+//                        .anyRequest().hasAuthority("SCOPE_console") // 使用hasAuthority过滤token作用范围
                 )
                 .csrf().disable()
                 .oauth2ResourceServer()
